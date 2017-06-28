@@ -17,7 +17,9 @@
 
 
 #if defined(_ZOS)
+#ifndef _XOPEN_SOURCE_EXTENDED
 #define _XOPEN_SOURCE_EXTENDED 1 //This macro makes zOS' unistd.h expose gethostname().
+#endif
 #endif
 
 
