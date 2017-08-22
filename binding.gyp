@@ -244,7 +244,6 @@
              "hcmqtt",
              "cpuplugin",
              #the following don't work on zOS yet
-             "headlessplugin",
           ],
         }],
       ],
