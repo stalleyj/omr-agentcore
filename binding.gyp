@@ -224,6 +224,21 @@
         "<(srcdir)/monitoring/connector/headless/HLConnector.cpp",
       ],
       "dependencies": [ "agentcore" ],
+      "conditions": [
+        ['OS=="os390"', {
+          # don't link on library - instead reinclude source files
+          "dependencies!": [ "agentcore" ],
+          "sources+": [
+            "<(srcdir)/common/util/strUtils.cpp",
+            "<(srcdir)/common/util/sysUtils.cpp",
+            "<(srcdir)/common/MemoryManager.cpp",
+            "<(srcdir)/monitoring/agent/Agent.cpp",
+            "<(srcdir)/common/Logger.cpp",
+            "<(srcdir)/common/LogManager.cpp",
+            "<(srcdir)/common/port/Lock.cpp",
+          ],
+        }],
+      ],
     },
     {
       "target_name": "external",
