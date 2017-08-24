@@ -101,6 +101,7 @@ void setPropertyWrapper(const char* key, const char* value) {
  * to its bucket
  */
 void pushDataWrapper(monitordata* data) {
+    std::cout << "JS Agent pushDataWrapper" << std::endl;
 	ibmras::monitoring::agent::Agent::getInstance()->addData(data);
 }
 

@@ -37,6 +37,7 @@ void (*listener)(const char*, unsigned int, void*);
 
 int APIConnector::sendMessage(const std::string &sourceId, uint32 size, void *data) {
 	if (listener != NULL) {
+        std::cout << "JS APIConnector::sendMessage sourceId:" << sourceId << std::endl;
 		char* asciiString = ibmras::common::util::createAsciiString(sourceId.c_str());
 		listener(asciiString, size, data);
 		ibmras::common::memory::deallocate((unsigned char**)&asciiString);
