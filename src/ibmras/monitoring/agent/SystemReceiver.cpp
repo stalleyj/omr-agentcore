@@ -29,6 +29,7 @@ namespace agent {
 const char* sysRecVersion = "1.0";
 
 int startReceiver() {
+    std::cout << "JS startReceiver " << std::endl;
 	return 0;
 }
 
@@ -61,10 +62,12 @@ void SystemReceiver::receiveMessage(const std::string &id, uint32 size,
 	ibmras::monitoring::agent::Agent* agent =
 			ibmras::monitoring::agent::Agent::getInstance();
 
+    std::cout << "JS receiveMessage id:" << id << std::endl;
+
 	// If the topic is "datasources" it means we have had a request
 	// to send back the source names and config (one for each bucket) to the client
 	if (id == "datasources") {
-		if(size <= 0 || data == NULL) {
+        		if(size <= 0 || data == NULL) {
 			return;
 		}
 		std::string topic((char*)data, size);
