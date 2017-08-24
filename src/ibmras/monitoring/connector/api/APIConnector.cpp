@@ -18,6 +18,8 @@
 #include "ibmras/common/util/strUtils.h"
 #include "ibmras/common/MemoryManager.h"
 
+#include <iostream>
+
 #define DEFAULT_CAPACITY 1024000  /* default bucket capacity = 1MB */
 
 #if defined(_WINDOWS)
