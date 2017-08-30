@@ -68,6 +68,13 @@ APICONNECTORPLUGIN_DECL void apiPushData(const char *sendData) {
 
 APICONNECTORPLUGIN_DECL void sendControl(const char* topic, unsigned int length, void* message) {
 	char* nativeString = ibmras::common::util::createNativeString(topic);
+
+    const char* constMessage = static_cast<const char* const>(message);
+
+    char* nativeMessage = ibmras::common::util::createNativeString(constMessage);
+
+    std::cout << "JS APIConnector::sendControl topic=" << nativeString << std::endl;
+    std::cout << "JS APIConnector::sendControl message=" << nativeMessage << std::endl;
 	plugin::receiver->receiveMessage(std::string(nativeString), length, message);
 	ibmras::common::memory::deallocate((unsigned char**)&nativeString);
 }
