@@ -75,7 +75,7 @@ APICONNECTORPLUGIN_DECL void sendControl(const char* topic, unsigned int length,
 
     std::cout << "JS APIConnector::sendControl topic=" << nativeString << std::endl;
     std::cout << "JS APIConnector::sendControl message=" << nativeMessage << std::endl;
-	plugin::receiver->receiveMessage(std::string(nativeString), length, message);
+	plugin::receiver->receiveMessage(std::string(nativeString), length, nativeMessage);
 	ibmras::common::memory::deallocate((unsigned char**)&nativeString);
 }
 
